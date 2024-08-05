@@ -9,6 +9,6 @@ Feature: Make payment on iyzico
     Then Go to "payment" page.
     Then Choose debit or credit card option and pay.
     Then Fill the required credit card information.
-    Then Click on pay button and verify SMS code.
+    Then Click on pay button and verify SMS code 283126
     Then Verify if "Sipariş Alındı" message is displayed.
     Then Close the page.

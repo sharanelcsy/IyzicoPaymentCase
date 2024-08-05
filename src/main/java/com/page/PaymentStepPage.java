@@ -104,9 +104,9 @@ public class PaymentStepPage extends HomePage {
 
 
     // clicks on Pay Button and verifies SMS
-    public boolean clickOnPayButtonAndVerifySMSCode() throws InterruptedException {
+    public boolean clickOnPayButtonAndVerifySMSCode(int sms) throws InterruptedException {
         methods.clickOnElementIfExists(doPaymentButton);
-        methods.enterTextToElement("283126", smsCodeArea);
+        methods.enterTextToElement(String.valueOf(sms), smsCodeArea);
         methods.waitTime(1);
         methods.clickOnElementIfExists(submitPayment);
         methods.waitTime(5);

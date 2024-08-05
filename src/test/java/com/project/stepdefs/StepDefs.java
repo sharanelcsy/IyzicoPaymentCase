@@ -54,9 +54,9 @@ public class StepDefs {
         Assert.assertTrue(paymentStepPage.fillTheRequiredCreditCardInformation());
     }
 
-    @Then("Click on pay button and verify SMS code.")
-    public void clickOnPayButtonAndVerifySMSCode() throws InterruptedException {
-        Assert.assertTrue(paymentStepPage.clickOnPayButtonAndVerifySMSCode());
+    @Then("Click on pay button and verify SMS code {int}")
+    public void clickOnPayButtonAndVerifySMSCode(int sms) throws InterruptedException {
+        Assert.assertTrue(paymentStepPage.clickOnPayButtonAndVerifySMSCode(sms));
     }
 
     @Then("Verify if {string} message is displayed.")

@@ -14,6 +14,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import static com.functions.Methods.WebDriverFactory.driver;
+
 public class TestNGBase {
 
     public static WebDriver myDriver;
@@ -61,9 +63,7 @@ public class TestNGBase {
         }
 
 
-		/*DriverFactory driverFactory =  DriverFactory.getInstance();
-		driverFactory.setDriver(sDriverName);
-		oDriver = driverFactory.getDriver();*/
+
     }
 
 
@@ -72,12 +72,8 @@ public class TestNGBase {
     //********************************************************
     @AfterClass
     public void automationTeardown() throws Exception {
-	  /*	if(!dbFlag) {
-			oDriver.quit();
-		}
-	  */
-        //DataDriver oDataDriver = new DataDriver();
-        // oDataDriver.fWriteKeepRefer(AutomationConstants.testDataPath + "Calendar.xlsx", keysMap, dataMap);
+
+        driver.quit();
         testCaseId = 0;
 
     }
@@ -90,7 +86,7 @@ public class TestNGBase {
         oExtentReport.flush();
 
         //EmailReporting.sendMail();
-        myDriver.quit();
+        driver.quit();
         //oDriver.remove();
     }
 
@@ -107,44 +103,7 @@ public class TestNGBase {
     }
 
 
-    //random generator
-    public int generateRandomNumber(int low, int high) {
-        Random r = new Random();
-        return r.nextInt(high - low) + low;
-    }
 
-
-
-    // enter text to element , after finding WebElement with path.
-    public void enterTextToElement(String input, By popup) {
-
-        if (myDriver.findElements(popup).size() != 0) {
-            WebElement popUpExistsClose = myDriver.findElement(popup);
-            popUpExistsClose.sendKeys(input);
-        }
-
-    }
-
-    // checks if element exists, then clicks on index element
-    public void clickOnElementIfExistsWithIndex(By popup, int index) throws InterruptedException {
-
-        if (myDriver.findElements(popup).size() != 0) {
-            List<WebElement> popUpExistsClose = myDriver.findElements(popup);
-            popUpExistsClose.get(index).click();
-        }
-        Thread.sleep(500);
-    }
-
-
-    public String takeStringFromWebElementList(List<WebElement> nameFlight, int index) {
-        return nameFlight.get(index).getText();
-    }
-
-
-    public static boolean waitTime(int number) throws InterruptedException {
-        Thread.sleep(number * 1000L);
-        return true;
-    }
 
     public void scrollToElementAndClick(WebElement webElement) throws Exception {
         ((JavascriptExecutor) myDriver).executeScript("arguments[0].scrollIntoView(true);", webElement);
@@ -199,18 +158,6 @@ public class TestNGBase {
         return true;
     }
 
-    public static boolean startTest() {
-        String completeClassName = new Exception().getStackTrace()[1].getClassName();
-        className = completeClassName.split("\\.")[completeClassName.split("\\.").length - 1];
-        oExtentTest = oExtentReport.startTest(className);
-        //MyTestNGBaseClass.
-        //Create entry in the Test Execution table for the test started
-        //testCaseId = DBReporting.insertExecutionRecord(className);
-        //testCaseId = DBReporting.insertExecutionRecordInGrafana(className);
-        //AutomationConstants.itestCaseID = testCaseId;
-
-        return true;
-    }
 
     public static void allureReport(String status, String message, boolean ssFlag) {
         try {
