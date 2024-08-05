@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <parameter name="appPackage" value="uk.gov.tfl.paytodrive"/>
+  <parameter name="appActivity" value="crc6452b5a51491009fe9.SplashActivity"/>
+  <parameter name="VIDEO_RECORDING" value="false"/>
+  <parameter name="PLATFORM_VERSION" value="6.0.1"/>
+  <parameter name="PLATFORM_NAME" value="Android"/>
+  <parameter name="appWaitPackage" value="uk.gov.tfl.paytodrive"/>
+  <parameter name="appWaitActivity" value="crc64b976859a4c39c788.MainMenuActivity"/>
+  <parameter name="CalendarName" value="Calendar.xlsx"/>
+  <parameter name="UDID" value="04d6bfeb0187efee"/>
+  <test name="Login to TfL(failed)">
+    <parameter name="TestName" value="Login To TfL"/>
+    <classes>
+      <class name="com.project.tests.LoginToMobileApp">
+        <methods>
+          <include name="test_LoginToMobileApp"/>
+          <include name="BeforeSuite"/>
+          <include name="startRecording"/>
+          <include name="automationSetup"/>
+          <include name="automationTeardown"/>
+          <include name="stopRecording"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.project.tests.LoginToMobileApp -->
+    </classes>
+  </test> <!-- Login to TfL(failed) -->
+  <test name="Pay to Drive(failed)">
+    <parameter name="TestName" value="Pay to Drive"/>
+    <classes>
+      <class name="com.project.tests.testSignedInUserPayToDrive">
+        <methods>
+          <include name="BeforeSuite"/>
+          <include name="startRecording"/>
+          <include name="automationSetup"/>
+          <include name="automationTeardown"/>
+          <include name="stopRecording"/>
+          <include name="test_SignedInUserPayToDrive"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.project.tests.testSignedInUserPayToDrive -->
+    </classes>
+  </test> <!-- Pay to Drive(failed) -->
+  <test name="LogOut(failed)">
+    <parameter name="TestName" value="Pay to Drive"/>
+    <classes>
+      <class name="com.project.tests.LogOutOfMobileApp">
+        <methods>
+          <include name="BeforeSuite"/>
+          <include name="startRecording"/>
+          <include name="test_LogOutOfMobileApp"/>
+          <include name="automationSetup"/>
+          <include name="automationTeardown"/>
+          <include name="stopRecording"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.project.tests.LogOutOfMobileApp -->
+    </classes>
+  </test> <!-- LogOut(failed) -->
+</suite> <!-- Failed suite [Suite] -->
